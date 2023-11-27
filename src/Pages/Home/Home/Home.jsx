@@ -1,5 +1,6 @@
 import SurveySection from "../SurveySection/SurveySection";
 import Banner from "./Banner/Banner";
+import Faq from "./Faq/Faq";
 import HowWork from "./HowWork/HowWork";
 import LatestSurvey from "./LatestSurvey/LatestSurvey";
 import Testimonials from "./Testimonials/Testimonials";
@@ -24,6 +25,9 @@ const Home = () => {
             </div>
             <div>
                 <Testimonials></Testimonials>
+            </div>
+            <div>
+                <Faq></Faq>
             </div>
         </div>
     );

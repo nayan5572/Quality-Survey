@@ -3,7 +3,7 @@ import Navigation from "../Pages/Home/Home/Navigation/Navigation";
 
 const Main = () => {
     return (
-        <div className="bg-gray-400">
+        <div className="">
             <Navigation></Navigation>
             <Outlet></Outlet>
         </div>

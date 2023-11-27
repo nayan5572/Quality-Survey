@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -14,18 +15,18 @@ const Navigation = () => {
                             </svg>
                         </a>
                         <ul className="items-stretch hidden space-x-3 lg:flex">
-                            <li className="flex">
-                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</a>
-                            </li>
-                            <li className="flex">
-                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Link</a>
-                            </li>
-                            <li className="flex">
-                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</a>
-                            </li>
-                            <li className="flex">
-                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Link</a>
-                            </li>
+                            <Link to="/" className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Home</a>
+                            </Link>
+                            <Link className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">About Us</a>
+                            </Link>
+                            <Link className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Survey</a>
+                            </Link>
+                            <Link to="/contact" className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Contact</a>
+                            </Link>
                         </ul>
                     </div>
                     <div className="items-center flex-shrink-0 hidden lg:flex">
