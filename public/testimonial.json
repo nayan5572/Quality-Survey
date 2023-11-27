@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Jennifer Turner",
+      "image": "https://live.afr.com/cfolive/wp-content/uploads/sites/5/2022/09/Jennifer-Turner.png",
+      "title": "Senior Graphic Designer",
+      "description": "Jennifer is an incredibly talented graphic designer with a keen eye for detail. Her creative designs have consistently exceeded our expectations and added a unique flair to our projects. She is a valuable asset to our team."
+    },
+    {
+      "name": "Michael Reynolds",
+      "image": "https://cdn.ameriprisecontent.com/cds/alwp/advisor/mike.martin/michael-lawrence-martin_3db34_400x490.jpg",
+      "title": "Marketing Manager",
+      "description": "Michael is a results-driven marketing professional who has played a key role in the success of our campaigns. His strategic thinking and innovative approach have significantly contributed to the growth of our brand. We're fortunate to have him on our team."
+    },
+    {
+      "name": "Sarah Mitchell",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjw2XbtqPkwN2xo0Sp8DDX8b0WCgykdVxipQ&usqp=CAU",
+      "title": "Software Engineer",
+      "description": "Sarah is a highly skilled software engineer with a passion for solving complex problems. Her dedication to writing clean and efficient code has been instrumental in the development of our cutting-edge software solutions. She's a true asset to our technical team."
+    }
+  ]
+  
