@@ -24,6 +24,9 @@ const Navigation = () => {
                             <Link className="flex">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Survey</a>
                             </Link>
+                            <Link className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Dashboard</a>
+                            </Link>
                             <Link to="/contact" className="flex">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Contact</a>
                             </Link>
