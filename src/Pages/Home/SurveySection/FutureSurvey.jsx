@@ -1,7 +1,6 @@
 
 
 const FutureSurvey = ({ fedData }) => {
-    console.log("My Data is", fedData);
     return (
         <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
             <img src={fedData.image} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />

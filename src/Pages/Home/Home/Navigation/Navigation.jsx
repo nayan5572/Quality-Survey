@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../../components/Hooks/useAuth";
 
 
 
 const Navigation = () => {
+    const { user, logOut } = useAuth();
+
+
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="">
             <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
@@ -33,8 +44,20 @@ const Navigation = () => {
                         </ul>
                     </div>
                     <Link to='/login' className="items-center flex-shrink-0 hidden lg:flex">
-                        <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Log in</button>
+
                     </Link>
+                    {
+                        user ? <>
+                            <p className="mt-6 ml-[600px] font-bold">{user?.displayName}</p>
+                            <img className="rounded-full" src={user?.photoURL} alt="" />
+                            <button onClick={handleLogout} className="bg-green-400 px-4 rounded">Log Out</button>
+                        </> :
+                            <>
+                                <Link to="/login">
+                                    <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Log in</button>
+                                </Link>
+                            </>
+                    }
                     <button className="p-4 lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
