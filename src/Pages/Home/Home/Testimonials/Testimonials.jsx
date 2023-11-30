@@ -5,7 +5,7 @@ const Testimonials = () => {
     const [testimonial, setTestimonial] = useState([]);
 
     useEffect(() => {
-        fetch('testimonial.json')
+        fetch('https://assignment-12-server-one-tan.vercel.app/testimonial')
             .then(res => res.json())
             .then(data => setTestimonial(data))
     }, [])
