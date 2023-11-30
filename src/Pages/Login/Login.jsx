@@ -1,11 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from './../../components/Hooks/useAuth';
-import { useState } from "react";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
     const { signInUs } = useAuth();
-    const [disabled, setDisabled] = useState(true);
 
     const navigate = useNavigate();
     const location = useLocation();

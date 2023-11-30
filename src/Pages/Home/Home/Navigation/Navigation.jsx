@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../../components/Hooks/useAuth";
+import useAdmin from "../../../../components/Hooks/useAdmin";
 
 
 
 const Navigation = () => {
     const { user, logOut } = useAuth();
+    const [isAdmin] = useAdmin();
 
 
 
@@ -35,9 +37,18 @@ const Navigation = () => {
                             <Link className="flex">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Survey</a>
                             </Link>
-                            <Link className="flex">
+
+                            {
+                                user && isAdmin && <Link to="/dashboard/adminHome" className="flex">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Dashboard</a>
                             </Link>
+                            }
+                            {
+                                user && !isAdmin && <Link to="/dashboard/userHome" className="flex">
+                                <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Dashboard</a>
+                            </Link>
+                            }
+                            
                             <Link to="/contact" className="flex">
                                 <a rel="noopener noreferrer" href="#" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Contact</a>
                             </Link>

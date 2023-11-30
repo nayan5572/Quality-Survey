@@ -5,7 +5,7 @@ const SurveySection = () => {
     const [fedSureSur, setFeatureSur] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/featuredSurvey')
+        fetch('https://assignment-12-server-one-tan.vercel.app/featuredSurvey')
             .then(res => res.json())
             .then(data => setFeatureSur(data))
     }, []);

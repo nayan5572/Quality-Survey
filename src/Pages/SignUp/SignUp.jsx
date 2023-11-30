@@ -35,14 +35,14 @@ const SignUp = () => {
                             name: data.name,
                             email: data.email
                         }
-                        axiosPublic.post('/users', userInfo)
+                        axiosPublic.post('/serveUser', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
                                     reset();
                                     Swal.fire({
                                         position: "top-end",
                                         icon: "success",
-                                        title: "Your work has been saved",
+                                        title: "Your Registration done",
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
