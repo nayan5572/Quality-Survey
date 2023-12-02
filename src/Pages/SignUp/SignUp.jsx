@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Firebase/Providers/AuthProviders";
 import useAxiosPublic from './../../components/Hooks/useAxiosPublic';
 import Swal from "sweetalert2";
@@ -9,6 +9,7 @@ const SignUp = () => {
     const axiosPublic = useAxiosPublic();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     // const onSubmit = (data) => {
     //     createUser(data.email, data.password)
@@ -46,6 +47,7 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
+                                    navigate('/');
                                 }
                             })
 

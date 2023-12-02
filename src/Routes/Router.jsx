@@ -10,6 +10,8 @@ import Dashboard from "../Layout/Dashboard/Dashboard";
 import AllUsers from "../Pages/AllUsers/AllUsers";
 import AdminHome from "../Layout/Dashboard/AdminHome/AdminHome";
 import UserHome from "../Layout/Dashboard/UserHome/UserHome";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+import SurveyCreation from "../Layout/SurveyCreation/SurveyCreation";
 
 
 
@@ -19,6 +21,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -35,33 +38,40 @@ export const router = createBrowserRouter([
       {
         path: 'signUp',
         element: <SignUp></SignUp>
+      }
+    ]
+  },
+
+
+
+
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      // normal user
+      {
+        path: 'userHome',
+        element: <UserHome></UserHome>
       },
 
+
+
+
+
+
+      // admin only routes
       {
-        path: 'dashboard',
-        element: <Dashboard></Dashboard>,
-        children: [
-          // normal user
-          {
-            path: 'userHome',
-            element: <UserHome></UserHome>
-          },
-
-
-
-
-
-
-          // admin only routes
-          {
-            path: 'users',
-            element: <AllUsers></AllUsers>
-          },
-          {
-            path: 'adminHome',
-            element: <AdminHome></AdminHome>
-          }
-        ]
+        path: 'usersList',
+        element: <AllUsers></AllUsers>
+      },
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: 'createSurvey',
+        element: <SurveyCreation></SurveyCreation>
       }
     ]
   }

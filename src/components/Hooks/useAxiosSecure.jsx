@@ -5,7 +5,7 @@ import useAuth from "./useAuth";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'https://assignment-12-server-one-tan.vercel.app'
+    baseURL: 'https://assignment-12-server-one-tan.vercel.app/'
 });
 
 const useAxiosSecure = () => {
