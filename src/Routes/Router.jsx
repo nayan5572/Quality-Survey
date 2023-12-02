@@ -12,6 +12,7 @@ import AdminHome from "../Layout/Dashboard/AdminHome/AdminHome";
 import UserHome from "../Layout/Dashboard/UserHome/UserHome";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import SurveyCreation from "../Layout/SurveyCreation/SurveyCreation";
+import AdminRouter from './AdminRouter';
 
 
 
@@ -63,15 +64,15 @@ export const router = createBrowserRouter([
       // admin only routes
       {
         path: 'usersList',
-        element: <AllUsers></AllUsers>
+        element: <AdminRouter><AllUsers></AllUsers></AdminRouter>
       },
       {
         path: 'adminHome',
-        element: <AdminHome></AdminHome>
+        element: <AdminRouter><AdminHome></AdminHome></AdminRouter>
       },
       {
         path: 'createSurvey',
-        element: <SurveyCreation></SurveyCreation>
+        element: <AdminRouter><SurveyCreation></SurveyCreation></AdminRouter>
       }
     ]
   }
