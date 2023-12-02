@@ -1,11 +1,19 @@
-# React + Vite
+# Quality Survey
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Create a readme with at least 5 bullet points for the client.
+1. While doing this project. I have faced many problems.
+2. A User can easily create a survey
+3. A User can like comments. And how can it work? That is also given.
+4. User will get many more benefits by making payment.
+5. A User cannot do anythings without login. After login you can access everything
 
-Currently, two official plugins are available:
+# Create a readme with what challenges you have faced for the backend.
+1. In this project I used tanstack query and used axios. I was able to write a lot of big  code in small way.
+2. Here I have used MongoDB as database. And can share data very easily.
+3. A User can easily create an account. And can create surveys in a beautiful way
+
 
 [   @Please Visit My Live site](https://neon-malasada-d1f7f7.netlify.app/)
 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+

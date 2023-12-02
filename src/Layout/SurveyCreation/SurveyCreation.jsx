@@ -1,6 +1,8 @@
 import { Fragment, useState } from "react";
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { Listbox, RadioGroup, Transition } from "@headlessui/react";
+import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../components/Hooks/useAxiosPublic";
 
 const people = [
     { name: 'Entertainment' },
@@ -21,49 +23,54 @@ const plans = [
 ]
 
 const SurveyCreation = () => {
+    const axiosPublic = useAxiosPublic();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
     const [selected, setSelected] = useState(people[0]);
 
     const [selected2, setSelected2] = useState(plans[0])
     // State to manage form data
-    const [formData, setFormData] = useState({
-        title: '',
-        description: '',
-        options: ['Yes', 'No'],
-        likeCount: 0,
-        dislikeCount: 0,
-        category: '',
-    });
+    // const [formData, setFormData] = useState({
+    //     title: '',
+    //     description: '',
+    //     options: ['Yes', 'No'],
+    //     likeCount: 0,
+    //     dislikeCount: 0,
+    //     category: '',
+    // });
 
     // Handle input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-    };
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData((prevData) => ({ ...prevData, [name]: value }));
+    // };
 
     // Handle option changes
-    const handleOptionChange = (index, value) => {
-        setFormData((prevData) => {
-            const updatedOptions = [...prevData.options];
-            updatedOptions[index] = value;
-            return { ...prevData, options: updatedOptions };
-        });
-    };
+    // const handleOptionChange = (index, value) => {
+    //     setFormData((prevData) => {
+    //         const updatedOptions = [...prevData.options];
+    //         updatedOptions[index] = value;
+    //         return { ...prevData, options: updatedOptions };
+    //     });
+    // };
 
     // Handle form submission (you can adjust this based on your backend logic)
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // You can send the formData to your backend for storage
-        console.log('Survey data submitted:', formData);
-        // Reset form data after submission
-        setFormData({
-            title: '',
-            description: '',
-            options: ['Yes', 'No'],
-            likeCount: 0,
-            dislikeCount: 0,
-            category: '',
-        });
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     // You can send the formData to your backend for storage
+    //     console.log('Survey data submitted:', formData);
+    //     // Reset form data after submission
+    //     setFormData({
+    //         title: '',
+    //         description: '',
+    //         options: ['Yes', 'No'],
+    //         likeCount: 0,
+    //         dislikeCount: 0,
+    //         category: '',
+    //     });
+    // };
+
+
     return (
         <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
             <h2 className="text-2xl font-semibold mb-4">Create a Survey</h2>
@@ -82,22 +89,12 @@ const SurveyCreation = () => {
                     <label className="block text-sm font-medium text-gray-700">Description</label>
                     <textarea
                         name="description"
-                        value={formData.description}
-                        onChange={handleInputChange}
+                        {...register("description")}
                         className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
                     />
                 </div>
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Options</label>
-                    {/* {formData.options.map((option, index) => (
-                        <input
-                            key={index}
-                            type="text"
-                            value={option}
-                            onChange={(e) => handleOptionChange(index, e.target.value)}
-                            className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                        />
-                    ))} */}
                     <RadioGroup value={selected} onChange={setSelected}>
                         <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
                         <div className="space-y-2">
@@ -156,14 +153,6 @@ const SurveyCreation = () => {
 
                 </div>
                 <div className="mb-4">
-                    {/* <label className="block text-sm font-medium text-gray-700">Category</label>
-                    <input
-                        type="text"
-                        name="category"
-                        value={formData.category}
-                        onChange={handleInputChange}
-                        className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                    /> */}
                     <label className="block text-sm font-medium text-gray-700">Category</label>
                     <Listbox value={selected2} onChange={setSelected2}>
                         <div className="relative mt-1">
