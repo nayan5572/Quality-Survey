@@ -13,6 +13,8 @@ import UserHome from "../Layout/Dashboard/UserHome/UserHome";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import SurveyCreation from "../Layout/SurveyCreation/SurveyCreation";
 import AdminRouter from './AdminRouter';
+import FeaturedSurveysDetails from "../Pages/Home/Home/LatestSurvey/FeaturedSurveysDetails/FeaturedSurveysDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -39,6 +41,11 @@ export const router = createBrowserRouter([
       {
         path: 'signUp',
         element: <SignUp></SignUp>
+      },
+      {
+        path: 'featuredSurvey/:id',
+        element: <FeaturedSurveysDetails></FeaturedSurveysDetails>,
+        loader: ({params})=> fetch(`https://assignment-12-server-one-tan.vercel.app/featuredSurvey/${params.id}`)
       }
     ]
   },
@@ -55,9 +62,6 @@ export const router = createBrowserRouter([
         path: 'userHome',
         element: <UserHome></UserHome>
       },
-
-
-
 
 
 

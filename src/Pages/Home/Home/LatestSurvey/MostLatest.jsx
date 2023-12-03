@@ -1,4 +1,6 @@
+// import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const MostLatest = ({ latest, postId }) => {
     const [likes, setLikes] = useState(0);
@@ -81,7 +83,9 @@ const MostLatest = ({ latest, postId }) => {
                 </div>
                 <p className="dark:text-gray-100">{latest.description}</p>
                 <div className="flex justify-between py-4">
-                    <button onClick={handleLike} disabled={userLiked} className="btn-small border px-2 bg-green-300">Like {likes}</button>
+                    <Link to={``}>
+                        <button onClick={handleLike} disabled={userLiked} className="btn-small border px-2 bg-green-300">Like {likes}</button>
+                    </Link>
                     <button onClick={handleDislike} disabled={userLiked} className="btn-small border px-2 bg-red-300">Dislike {dislikes}</button>
                     <button className="btn-small px-4 border">Comments</button>
                 </div>

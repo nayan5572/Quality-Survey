@@ -38,7 +38,7 @@ const SurveyCreation = () => {
                     Swal.fire({
                         position: "top",
                         icon: "success",
-                        title: "Your Survey Created",
+                        title: "Your Survey Created done",
                         showConfirmButton: false,
                         timer: 1500
                     });
