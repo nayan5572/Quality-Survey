@@ -2,7 +2,7 @@ import { FaUsers } from "react-icons/fa";
 import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { QueryClient } from "react-query";
+
 
 const AllUsers = () => {
     // const axiosSecure = useAxiosSecure();

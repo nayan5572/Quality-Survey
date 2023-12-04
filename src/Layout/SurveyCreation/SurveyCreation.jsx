@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from './../../components/Hooks/useAxiosPublic';
-import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
-import { FaUtensils } from "react-icons/fa";
+import useAxiosSecure from "../../components/Hooks/useAxiosSecure";
+
 
 
 
@@ -10,16 +10,12 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const SurveyCreation = () => {
-    // const axiosPublic = useAxiosPublic();
-    // const navigate = useNavigate();
-
-
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
 
     const onSubmit = async (data) => {
-        console.log(data);
+        console.log("My Data One", data);
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {
@@ -29,21 +25,22 @@ const SurveyCreation = () => {
         if (res.data.success) {
             // now send the menu item data to the server with the image
             const menuItem = {
-                name: data.name,
+                title: data.title,
                 category: data.category,
-                price: parseFloat(data.price),
-                recipe: data.recipe,
+                description: data.description,
                 image: res.data.data.display_url
             }
-            const menuRes = await axiosSecure.post('/menu', menuItem);
-            console.log(menuRes.data);
+            console.log("My Menu Items", menuItem);
+
+            const menuRes = await axiosSecure.post('/featuredSurvey', menuItem);
+            console.log("My Data is", menuRes.data);
             if (menuRes.data.insertedId) {
                 // show success popup
                 reset();
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} is added to the survey`,
+                    title: `${data.name} is added to the Survey`,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -63,8 +60,8 @@ const SurveyCreation = () => {
                         </label>
                         <input
                             type="text"
-                            placeholder="Survey Name"
-                            {...register('name', { required: true })}
+                            placeholder="Survey title"
+                            {...register('title', { required: true })}
                             className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500"
                         />
                     </div>
@@ -97,7 +94,7 @@ const SurveyCreation = () => {
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-600">Description</label>
                         <textarea
-                            {...register('recipe', { required: true })}
+                            {...register('description', { required: true })}
                             className="mt-1 p-2 border border-gray-300 rounded-md w-full focus:outline-none focus:border-blue-500"
                             placeholder="Survey Details"
                         ></textarea>

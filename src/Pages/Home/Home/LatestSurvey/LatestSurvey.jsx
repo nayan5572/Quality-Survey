@@ -6,7 +6,7 @@ const LatestSurvey = () => {
 
 
     useEffect(() => {
-        fetch('https://assignment-12-server-one-tan.vercel.app/featuredSurvey')
+        fetch('https://assignment-12-server-one-tan.vercel.app/latestData')
             .then(res => res.json())
             .then(data => setLatestSurvey(data))
     }, []);

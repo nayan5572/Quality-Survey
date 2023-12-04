@@ -15,6 +15,7 @@ import SurveyCreation from "../Layout/SurveyCreation/SurveyCreation";
 import AdminRouter from './AdminRouter';
 import FeaturedSurveysDetails from "../Pages/Home/Home/LatestSurvey/FeaturedSurveysDetails/FeaturedSurveysDetails";
 import PrivateRoute from "./PrivateRoute";
+import SurveyList from "../Layout/Dashboard/SurveyList/SurveyList";
 
 
 
@@ -61,6 +62,11 @@ export const router = createBrowserRouter([
       {
         path: 'userHome',
         element: <UserHome></UserHome>
+      },
+      {
+        path: 'surveyList',
+        element: <SurveyList></SurveyList>,
+        loader: ()=> fetch (`https://assignment-12-server-one-tan.vercel.app/featuredSurvey`)
       },
 
 

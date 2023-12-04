@@ -15,7 +15,7 @@ const SurveySection = () => {
             <h2 className="text-4xl font-bold my-4 text-center py-4">Featured Surveys Section</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto py-12 bg-white p-6">
                 {
-                    fedSureSur.slice(0,6).map(fedData => <FutureSurvey key={fedData._id} fedData={fedData}></FutureSurvey>)
+                    fedSureSur.map(fedData => <FutureSurvey key={fedData._id} fedData={fedData}></FutureSurvey>)
                 }
             </div>
         </div>
